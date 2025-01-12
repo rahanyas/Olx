@@ -8,39 +8,39 @@ import Dropdown from "./DropDown";
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center gap-8 bg-gray-200 justify-around">
-      <img src="/olx-logo.png" alt="olx logo" width="70px" />
+    <nav className="flex items-center gap-8 bg-gray-100 justify-between w-full">
+      <img src="/olx-logo-removebg-preview.png" alt="olx logo" width="70px" className="bg-transparent p-0 m-0 shadow-none"/>
 
       {/* location search */}
       
-      <div className="relative ml-4 flex items-center  box-border h-11 py-0 px-2 w-[300px]">
+      <div className="relative  flex items-center  box-border h-11 py-0 px-2 w-[300px] sm:mr-4">
         <input
           type="search"
           name=""
           id=""
           placeholder='search'
-          className="border-black border-2 outline-none h-10 text-sm/[16px] text-ellipsis whitespace-nowrap sm:w-full p-6 rounded-md focus:border-blue-400 md:w-full"
+          className="border-black border-2 outline-none h-10 text-sm/[16px] text-ellipsis whitespace-nowrap sm:w-full p-6 rounded-md focus:border-customTeal md:w-full"
         />
-        <ChevronDownIcon className="h-6 w-6 absolute right-2 top-1/2 transform -translate-y-1/2" />
+        <ChevronDownIcon className="h-6 w-6 absolute right-3 top-1/2 transform -translate-y-1/2" />
       </div>
       
 
       {/* product search */}
-      <div className="relative ml-4 flex items-center box-border h-11 py-0 px-0  lg:w-[700px]">
+      <div className="relative  flex items-center box-border h-11 py-0 px-0  lg:w-[800px]">
         <input
           type="search"
           name=""
           id=""
           placeholder='search'
-          className="hidden lg:block flex-shrink-0 border-black border-2 outline-none h-10 text-sm/[16px] text-ellipsis whitespace-nowrap w-full p-6 leading-normal rounded-md focus:border-blue-400"
+          className="hidden lg:block flex-shrink-0 border-black border-2 outline-none h-10 text-sm/[16px] text-ellipsis whitespace-nowrap w-full p-6 leading-normal md:rounded-tr-md md:rounded-br-md focus:border-customTeal"
         />
         
-        <MagnifyingGlassIcon className="absolute  w-12 p-3 right-0 top-1/2 transform -translate-y-1/2 bg-black text-white  md:rounded-tr-md md:rounded-br-md "/>
+        <MagnifyingGlassIcon className="absolute  w-12 p-3 right-0 top-1/2 transform -translate-y-1/2 bg-black text-white  md:rounded-tr-md md:rounded-br-md sm:rounded-md md:rounded-tl-none md:rounded-bl-none"/>
       </div>
       
        <Dropdown />
 
-       <div>
+       
         <button className="mr-3 ml-5">
            <NavLink
            to='/login'
@@ -49,7 +49,14 @@ const Navbar = () => {
             Login
            </NavLink>
         </button>
-       </div>
+       
+       
+        <button className="mr-4 bg-blu rounded-lg border-yellow-400 border-4 h-9 w-20">
+          <span>
+            sell
+          </span>
+        </button>
+      
         
     </nav>
   );
