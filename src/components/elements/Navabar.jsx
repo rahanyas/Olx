@@ -8,7 +8,7 @@ import Dropdown from "./DropDown";
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center gap-8 bg-gray-100 justify-between w-full">
+    <nav className="flex items-center gap-8 bg-gray-100 justify-between h-full overflow-hidden">
       <img src="/olx-logo-removebg-preview.png" alt="olx logo" width="70px" className="bg-transparent p-0 m-0 shadow-none"/>
 
       {/* location search */}
@@ -26,7 +26,7 @@ const Navbar = () => {
       
 
       {/* product search */}
-      <div className="relative  flex items-center box-border h-11 py-0 px-0  lg:w-[800px]">
+      <div className="relative flex items-center box-border h-11 py-0 px-0  lg:w-[800px]">
         <input
           type="search"
           name=""
