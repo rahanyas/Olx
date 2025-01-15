@@ -3,12 +3,18 @@ import {
   ChevronDownIcon , 
   MagnifyingGlassIcon
 } from "@heroicons/react/16/solid";
-import Dropdown from "./DropDown";
+import { useState } from "react";
 
 
 const Navbar = () => {
+
+  const [isOpen, setIsOpen] = useState(false);
+  function toggleIcon(){
+    setIsOpen((prev) => !prev)
+  }
+
   return (
-    <nav className="flex items-center gap-8 bg-gray-100 justify-between h-full overflow-hidden">
+    <nav className="flex items-center gap-8 bg-gray-100 justify-evenly overflow-hidden fixed h-[60px] w-full">
       <img src="/olx-logo-removebg-preview.png" alt="olx logo" width="70px" className="bg-transparent p-0 m-0 shadow-none"/>
 
       {/* location search */}
@@ -20,8 +26,9 @@ const Navbar = () => {
           id=""
           placeholder='search'
           className="border-black border-2 outline-none h-10 text-sm/[16px] text-ellipsis whitespace-nowrap sm:w-full p-6 rounded-md focus:border-customTeal md:w-full"
+          onClick={toggleIcon}
         />
-        <ChevronDownIcon className="h-6 w-6 absolute right-3 top-1/2 transform -translate-y-1/2" />
+        <ChevronDownIcon className={`h-6 w-6 absolute right-3 top-1/2 transform -translate-y-1/2 transition-transform duration-500 ${isOpen ? "rotate-180" : "rotate-0"}`} />
       </div>
       
 
@@ -37,9 +44,6 @@ const Navbar = () => {
         
         <MagnifyingGlassIcon className="absolute  w-12 p-3 right-0 top-1/2 transform -translate-y-1/2 bg-black text-white  md:rounded-tr-md md:rounded-br-md sm:rounded-md md:rounded-tl-none md:rounded-bl-none"/>
       </div>
-      
-       <Dropdown />
-
        
         <button className="mr-3 ml-5">
            <NavLink

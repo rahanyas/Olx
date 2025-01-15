@@ -7,6 +7,7 @@ function Layout() {
   return (
     <>
       <Navbar />
+      <div className="h-16"></div>
       <Categories />
       <Outlet />
       <Footer />
