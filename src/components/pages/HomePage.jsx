@@ -3,20 +3,25 @@ import axios from 'axios';
 
 const HomePage = () => {
   const [items, setItems] = useState([]);
+  const [page, setPage] = useState(1);
+
+  function loadMore(){
+    setPage(prev => prev + 1)
+  }// to load more the items
 
   useEffect(() => {
     axios
       .get('https://fakestoreapi.com/products')
       .then((res) => {
-        setItems(res.data);
+        setItems(prev => [...prev, ...res.data]);//to store new items to previous one
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [page]);//re-render only when page change
 
   return (
-    <div className="bg-gray-100 min-h-screen p-4">
+    <div className=" min-h-screen p-4">
       <div className="max-w-screen-xl mx-auto">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
           {items.map((item) => (
@@ -40,6 +45,13 @@ const HomePage = () => {
               </div>
             </div>
           ))}
+        </div>
+        <div className='flex justify-center mt-3'>
+           <button className='border-2 border-black rounded p-2 font-semibold capitalize hover:border-[5px] hover:transition-all ease-in duration-75'
+           onClick={loadMore}
+           >
+            load more
+           </button>
         </div>
       </div>
     </div>

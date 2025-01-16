@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       colors : {
-        customTeal : '#23e5db'
+        customTeal : '#23e5db',
+        linkColor : 'rgba(0, 47, 52, 1)'
       }
     },
   },
