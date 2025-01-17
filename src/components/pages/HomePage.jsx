@@ -3,22 +3,17 @@ import axios from 'axios';
 
 const HomePage = () => {
   const [items, setItems] = useState([]);
-  const [page, setPage] = useState(1);
-
-  function loadMore(){
-    setPage(prev => prev + 1)
-  }// to load more the items
 
   useEffect(() => {
     axios
-      .get('https://fakestoreapi.com/products')
+      .get('https://dummyjson.com/products')
       .then((res) => {
-        setItems(prev => [...prev, ...res.data]);//to store new items to previous one
+        setItems(res.data.products);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [page]);//re-render only when page change
+  }, []);//re-render only when page change
 
   return (
     <div className=" min-h-screen p-4">
@@ -30,7 +25,7 @@ const HomePage = () => {
               className="bg-white rounded-md shadow-sm border hover:shadow-lg transition duration-200 cursor-pointer"
             >
               <img
-                src={item.image}
+                src={item.images[0]}
                 alt={item.title}
                 className="w-full h-48 object-cover rounded-t-md"
               />
@@ -48,13 +43,13 @@ const HomePage = () => {
         </div>
         <div className='flex justify-center mt-3'>
            <button className='border-2 border-black rounded p-2 font-semibold capitalize hover:border-[5px] hover:transition-all ease-in duration-75'
-           onClick={loadMore}
+          //  onClick={}
            >
             load more
            </button>
         </div>
       </div>
-    </div>
+    </div>   
   );
 };
 
