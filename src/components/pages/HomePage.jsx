@@ -42,7 +42,7 @@ const HomePage = () => {
           ))}
         </div>
         <div className='flex justify-center mt-3'>
-           <button className='border-2 border-black rounded p-2 font-semibold capitalize hover:border-[5px] hover:transition-all ease-in duration-75'
+           <button className='border-2 border-black rounded p-2 font-semibold capitalize hover:border-[5px] transition-all ease-in duration-75 my-4'
           //  onClick={}
            >
             load more
